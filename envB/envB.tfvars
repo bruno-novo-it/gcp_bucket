@@ -1,11 +1,18 @@
 # Set Values to Specific Environment
 
-project_id  = "teste-do-novinho"
+project_id  = "project-2"
 
 bucket_name = [
-    "envA-bucket01",
-    "envA-bucket02",
-    "envA-bucket03"
+    "envB-bucket01",
+    "envB-bucket02",
+    "envB-bucket03",
+    "envB-bucket04",
+    "envB-bucket05",
+    "envB-bucket06",
+    "envB-bucket07",
+    "envB-bucket08",
+    "envB-bucket09",
+    "envB-bucket10"
 ]
 
 bucket_permissions = [

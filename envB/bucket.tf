@@ -1,5 +1,5 @@
 
-# Not Public Buckets
+# Public Buckets
 resource "google_storage_bucket" "bucket" {
   for_each = toset(var.bucket_name)
 
@@ -17,23 +17,19 @@ resource "google_storage_default_object_access_control" "public_access_rule" {
   bucket  = lower(each.value)
   role    = "READER"
   entity  = "allUsers"
-}
-
-resource "google_storage_bucket_iam_member" "read_write" {
-  for_each = toset(var.bucket_name)
-
-  bucket = lower(each.value)
-  role   = var.bucket_permissions[0]
-  member = var.users[0]
   depends_on = [google_storage_bucket.bucket]
 }
 
+# Read/Write Permission for the Bucket
+resource "google_storage_bucket_iam_member" "read_write" {
+  for_each = {
+    for key in var.bucket_name:
+      key => var.bucket_name
+    if key != "envB-bucket04" && key != "envB-bucket07"
+  }
 
-resource "google_storage_bucket_iam_member" "read" {
-  for_each = toset(var.bucket_name)
-
-  bucket = lower(each.value)
-  role   = var.bucket_permissions[1]
-  member = var.users[1]
+  bucket = lower(each.key)
+  role   = var.bucket_permissions[0]
+  member = var.users[0]
   depends_on = [google_storage_bucket.bucket]
 }

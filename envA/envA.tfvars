@@ -1,6 +1,6 @@
 # Set Values to Specific Environment
 
-project_id  = "teste-do-novinho"
+project_id  = "project-1"
 
 bucket_name = [
     "envA-bucket01",
