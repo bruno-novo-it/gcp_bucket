@@ -4,7 +4,7 @@
 
 This repository will give some examples on how create multiple buckets, public ou private and give user permissions to them
 
-### First, Go to the project/environment you want and change the variables inside the envX.tfvars
+### First, go to the project/environment you want and change the variables inside the envX.tfvars
 
 ```sh
     cd envX
@@ -41,4 +41,4 @@ This repository will give some examples on how create multiple buckets, public o
     rm -rf terraform.tfstate.backup terraform.tfstate .terraform.lock.hcl .terraform
 ```
 
-##### :warning: Uncomment the backend.tf to store the tfstate file in another GCS Bucket
+##### :warning: Uncomment the backend.tf file to store the tfstate file in another GCS Bucket
